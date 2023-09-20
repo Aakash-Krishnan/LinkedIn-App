@@ -1,0 +1,45 @@
+.like-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+
+  p {
+    font-family: system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 5px;
+    color: rgba(58, 58, 58, 0.835);
+  }
+  p:hover {
+    color: #0a66c2;
+  }
+
+  .hr-line {
+    margin-top: -18px;
+    hr {
+      border-top: 1px solid rgb(138, 135, 135);
+    }
+  }
+
+  .likes-inner {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: -25px;
+
+    .blue {
+      color: #0a66c2;
+    }
+
+    p {
+      font-family: system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      margin-left: 5px;
+      color: rgba(58, 58, 58, 0.835);
+    }
+  }
+}

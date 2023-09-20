@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./index.scss";
 import { editProfile } from "../../../api/FirestoreAPI";
+import { AiOutlineClose } from "react-icons/ai";
 
 //4:16:51
 
@@ -22,7 +23,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
   return (
     <div className="profile-card">
       <div className="edit-btn">
-        <button onClick={onEdit}>Go back</button>
+        <AiOutlineClose className="close-icon" onClick={onEdit} />
       </div>
       <div className="profile-edit-inputs">
         <label>Name</label>
@@ -42,21 +43,29 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
           name="headline"
           value={editInputs.headline}
         />
-        <label>Location</label>
+        <label>Country</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Location"
-          name="location"
-          value={editInputs.location}
+          placeholder="Country"
+          name="country"
+          value={editInputs.country}
         />
-        <label>Company</label>
+        <label>City</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Company"
-          name="company"
-          value={editInputs.company}
+          placeholder="City"
+          name="city"
+          value={editInputs.city}
+        />
+        <label>Industry</label>
+        <input
+          onChange={getInput}
+          className="common-input"
+          placeholder="Industry"
+          name="industry"
+          value={editInputs.industry}
         />
         <label>College</label>
         <input
@@ -65,6 +74,31 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
           placeholder="College"
           name="college"
           value={editInputs.college}
+        />
+        <label>Website</label>
+        <input
+          onChange={getInput}
+          className="common-input"
+          placeholder="Website"
+          name="website"
+          value={editInputs.website}
+        />
+        <label>About</label>
+        <textarea
+          className="common-textArea"
+          onChange={getInput}
+          placeholder="About me"
+          rows={5}
+          name="aboutme"
+          value={editInputs.aboutme}
+        />
+        <label>Skills</label>
+        <input
+          className="common-textArea"
+          onChange={getInput}
+          placeholder="Skills"
+          name="skills"
+          value={editInputs.skills}
         />
       </div>
       <div className="save-container">

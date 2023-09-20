@@ -42,9 +42,22 @@ const ProfileCard = ({ currentUser, onEdit }) => {
             </p>
             <p className="location">
               {Object.values(currentProfile).length === 0
-                ? currentUser.location
-                : currentProfile?.location}
+                ? `${currentUser.city} | ${currentUser.country}`
+                : `${currentUser.city} | ${currentUser.country}`}
             </p>
+            <a
+              className="website"
+              href={
+                Object.values(currentProfile).length === 0
+                  ? `${currentUser.website}`
+                  : currentProfile?.website
+              }
+              target="blank"
+            >
+              {Object.values(currentProfile).length === 0
+                ? `${currentUser.website}`
+                : currentProfile?.website}
+            </a>
           </div>
           <div className="right-info">
             <p className="college">
@@ -54,11 +67,23 @@ const ProfileCard = ({ currentUser, onEdit }) => {
             </p>
             <p className="company">
               {Object.values(currentProfile).length === 0
-                ? currentUser.company
-                : currentProfile?.company}
+                ? currentUser.industry
+                : currentProfile?.industry}
             </p>
           </div>
         </div>
+        <p className="about">
+          {Object.values(currentProfile).length === 0
+            ? `${currentUser.aboutme}`
+            : currentProfile?.aboutme}
+        </p>
+
+        <p className="skills">
+          <span className="">Skills: </span>
+          {Object.values(currentProfile).length === 0
+            ? `${currentUser.skills}`
+            : currentProfile?.skills}
+        </p>
       </div>
 
       <div className="post-status-main">
