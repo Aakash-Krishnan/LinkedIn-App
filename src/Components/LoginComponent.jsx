@@ -56,6 +56,7 @@ const LoginComponent = () => {
           />
           <input
             className="common-input"
+            style={{ marginop: "10px" }}
             type="password"
             placeholder="Enter your password"
             onChange={(e) =>

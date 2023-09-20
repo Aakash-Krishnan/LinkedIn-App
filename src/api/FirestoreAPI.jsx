@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 let postsRef = collection(firestore, "posts");
 let usersRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
+let commentsRef = collection(firestore, "comments");
 
 export const PostStatusAPI = (object) => {
   addDoc(postsRef, object)
@@ -124,6 +125,38 @@ export const getLikesByUser = (userId, postsId, setLiked, setLikesCount) => {
       const isLiked = likes.some((like) => like.userId === userId);
       setLikesCount(likesCount);
       setLiked(isLiked);
+    });
+  } catch (err) {
+    console.log("Get lIke error", err);
+  }
+};
+
+export const postComment = (postsId, comment, timeStamp, name, setComment) => {
+  try {
+    addDoc(commentsRef, { postsId, comment, timeStamp, name });
+    setComment("");
+  } catch (err) {
+    console.log("Posting comment failed", err);
+  }
+};
+
+export const getCommentsAPI = (
+  postsId,
+  setRecoveredComments,
+  setCommentsCount
+) => {
+  try {
+    let commentsQuery = query(commentsRef, where("postsId", "==", postsId));
+
+    onSnapshot(commentsQuery, (response) => {
+      const commentsCount = response.docs.length;
+      setCommentsCount(commentsCount);
+
+      const comments = response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      });
+
+      setRecoveredComments(comments);
     });
   } catch (err) {
     console.log("Get lIke error", err);

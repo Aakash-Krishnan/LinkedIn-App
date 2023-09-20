@@ -1,3 +1,13 @@
+.whole-comment-container {
+  position: inherit;
+  // background-color: rgb(181, 180, 180);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .like-container {
   display: flex;
   justify-content: center;
@@ -5,6 +15,18 @@
   gap: 5px;
   padding: 7px 10px;
   cursor: pointer;
+  margin-bottom: -14px;
+
+  .likes-comments {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #0a66c2;
+    }
+  }
 
   p {
     font-family: system-ui, sans-serif;
@@ -24,11 +46,39 @@
     }
   }
 
-  .likes-inner {
+  .like-comment {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+
+  .comment-input {
+    height: 35px;
+    background-color: whitesmoke;
+    padding-left: 7px;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid #8e8e8e;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+  }
+
+  .add-comment-btn {
+    width: 150px;
+    height: 35px;
+    background-color: #0a66c2;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .likes-comment-inner {
     display: flex;
     align-items: center;
     margin-top: -20px;
-    margin-bottom: -25px;
 
     .blue {
       color: #0a66c2;
@@ -41,5 +91,46 @@
       margin-left: 5px;
       color: rgba(58, 58, 58, 0.835);
     }
+  }
+  .all-comments {
+    background-color: rgb(227, 227, 227);
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+
+    p:hover {
+      color: rgba(58, 58, 58, 0.835);
+    }
+  }
+}
+
+.comment-input:focus {
+  outline: 1px solid #3f3f3f;
+  color: #3f3f3f;
+}
+
+.comments-username {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -10px;
+  .name {
+    color: rgba(58, 58, 58, 0.835);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
+.comment-container {
+  // margin-bottom: -15px;
+  margin-top: -5px;
+  margin-left: 5px;
+
+  .comment {
+    // font-weight: 400;
+    color: rgba(58, 58, 58, 0.835);
+    // font-size: 12px;
   }
 }
