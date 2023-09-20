@@ -1,0 +1,88 @@
+$linkedinBlue1: #0072b1;
+
+.profile-card {
+  width: auto;
+  height: auto;
+  background-color: whitesmoke;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+
+  .profile-info {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right-info {
+      margin-top: 25px;
+      margin-right: 20px;
+      .college,
+      .company {
+        font-family: system-ui, sans-serif;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.9);
+        font-weight: 600;
+        line-height: 30px;
+
+        @media (max-width: 767px) {
+          margin-top: -25px;
+        }
+      }
+
+      .company {
+        margin-top: -15px;
+      }
+    }
+  }
+
+  .edit-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+
+    .edit-icon {
+      padding: 4px;
+      font-size: 20px;
+    }
+    .edit-icon:hover {
+      border-radius: 50%;
+      background-color: rgb(163, 159, 159);
+      font-size: 22px;
+    }
+    button {
+      cursor: pointer;
+      font-family: system-ui, sans-serif;
+      background-color: white;
+    }
+  }
+
+  .userName {
+    margin-top: -6px;
+    font-family: system-ui, sans-serif;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+  }
+
+  .userEmail {
+    margin-top: -20px;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .heading {
+    width: 320px;
+    font-weight: 400;
+    margin-top: -25px;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 20px;
+  }
+}

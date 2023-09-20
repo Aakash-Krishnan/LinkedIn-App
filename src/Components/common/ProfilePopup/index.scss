@@ -1,0 +1,60 @@
+.popup-card {
+  border: 1px solid #a8a8a8;
+  width: 200px;
+  height: auto;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 20px 20px 20px;
+
+  :last-child {
+    margin-top: 10px;
+  }
+  .user-details {
+    display: flex;
+    width: auto;
+    align-items: center;
+  }
+  .user-info {
+    width: 100%;
+    margin-left: 10px;
+  }
+  .user-img {
+    // margin-top: -20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+  }
+  .name {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+    text-align: left;
+    margin-top: -7px;
+  }
+
+  .headline {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.9);
+    margin-top: -15px;
+  }
+}
+
+.btn-container {
+  margin-top: 20px;
+  position: inherit;
+  :first-child {
+    margin-top: 2px;
+  }
+}
+
+.hline {
+  color: black;
+  width: 100%;
+  margin-top: 20px;
+  position: absolute;
+}
