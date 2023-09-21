@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useMemo, useState } from "react";
 import {
@@ -12,7 +13,7 @@ import { AiOutlineComment } from "react-icons/ai";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import { useNavigate } from "react-router-dom";
 
-const LikeButton = ({ userId, postsId, currentUser, posts }) => {
+const LikeButton = ({ userId, postsId, currentUser, posts, allUsers }) => {
   const navigate = useNavigate();
   const [likesCount, setLikesCount] = useState(0);
   const [showCommentBox, setShowCommentBox] = useState(false);
@@ -20,8 +21,6 @@ const LikeButton = ({ userId, postsId, currentUser, posts }) => {
   const [recoveredComments, setRecoveredComments] = useState({});
   const [commentsCount, setCommentsCount] = useState(0);
   const [liked, setLiked] = useState(false);
-
-  console.log(posts);
 
   const getComment = (event) => {
     setComment(event.target.value);
@@ -96,41 +95,26 @@ const LikeButton = ({ userId, postsId, currentUser, posts }) => {
 
           {recoveredComments.length > 0 ? (
             <div className="whole-comment-container">
-              {/* {recoveredComments.length > 0 ? ( */}
-              {
-                recoveredComments.map((comment) => {
-                  return (
-                    <>
-                      <div key={comment.id} className="all-comments">
-                        <div className="comments-username">
-                          <p
-                            className="name"
-                            // onClick={() =>
-                            //   navigate("/profile", {
-                            //     state: {
-                            //       id: posts?.userID,
-                            //       email: posts.userEmail,
-                            //     },
-                            //   })
-                            // }
-                          >
-                            {comment.name}
-                          </p>
-                          <p className="timeStamp">{comment.timeStamp}</p>
-                        </div>
-                        <div className="comment-container">
-                          <p className="comment">{comment.comment}</p>
-                        </div>
+              {recoveredComments.map((comment) => {
+                return (
+                  <>
+                    <div key={comment.id} className="all-comments">
+                      <div className="comments-username">
+                        {allUsers
+                          .filter((user) => user.userID === posts.userID)
+                          .map((item) => (
+                            <p key={item.id}>{item.name}</p>
+                          ))}
+
+                        <p className="timeStamp">{comment.timeStamp}</p>
                       </div>
-                      {/* <hr></hr> */}
-                    </>
-                  );
-                })
-                //   )
-                //   : (
-                //     <></>
-                //   )
-              }
+                      <div className="comment-container">
+                        <p className="comment">{comment.comment}</p>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           ) : (
             <></>

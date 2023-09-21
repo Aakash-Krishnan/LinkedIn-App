@@ -20,7 +20,7 @@ const PostStatus = ({ curentUser }) => {
       userEmail: curentUser.email,
       userName: curentUser.name,
       postId: getUniqueId(),
-      userID: curentUser.userID,
+      userID: curentUser.id,
     };
     await PostStatusAPI(object);
     await setModalOpen(false);

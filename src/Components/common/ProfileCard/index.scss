@@ -21,6 +21,16 @@ $linkedinBlue1: #0072b1;
       color: $linkedinBlue1;
     }
 
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: contain;
+      border: 2px solid #c3c3c3;
+      padding: 5px;
+      cursor: pointer;
+    }
+
     .right-info {
       margin-top: 25px;
       margin-right: 20px;
@@ -65,7 +75,7 @@ $linkedinBlue1: #0072b1;
   }
 
   .userName {
-    margin-top: -6px;
+    margin-top: 6px;
     font-family: system-ui, sans-serif;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.9);

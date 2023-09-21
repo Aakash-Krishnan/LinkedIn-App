@@ -47,6 +47,16 @@ export const postUserData = (object) => {
     });
 };
 
+export const getAllUsersAPI = (setAllUsers) => {
+  onSnapshot(usersRef, (response) => {
+    setAllUsers(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
 export const getCurrentUser = (setCurrentUser) => {
   onSnapshot(usersRef, (response) => {
     setCurrentUser(
@@ -63,8 +73,8 @@ export const getCurrentUser = (setCurrentUser) => {
 
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(usersRef, userID);
-  let statusToEdit = doc(postsRef, userID);
-  console.log("payload", payload.name);
+  // let statusToEdit = doc(postsRef, userID);
+  // console.log("payload", payload.name);
 
   updateDoc(userToEdit, payload)
     .then((res) => {
@@ -74,9 +84,9 @@ export const editProfile = (userID, payload) => {
       toast.error("Profile Rejected!");
     });
 
-  updateDoc(statusToEdit, payload).then(() => {
-    toast.success("ProfileName ");
-  });
+  // updateDoc(statusToEdit, payload).then(() => {
+  //   toast.success("ProfileName ");
+  // });
 };
 
 export const getSingleStatus = (setAllStatus, id) => {

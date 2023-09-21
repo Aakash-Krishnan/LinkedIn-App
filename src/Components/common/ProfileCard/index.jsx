@@ -4,12 +4,31 @@ import PostsCard from "../postCard";
 import "./index.scss";
 import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import { useLocation } from "react-router-dom";
+import FileUploadModal from "../FileUploadModal";
 import { HiOutlinePencil } from "react-icons/hi";
+import { uploadImageAPI } from "../../../api/ImageUploadAPI";
 
 const ProfileCard = ({ currentUser, onEdit }) => {
   const location = useLocation();
   const [allStatus, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState([]);
+  const [currentImage, setCurrentImage] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const getImage = (event) => {
+    setCurrentImage(event.target.files[0]);
+  };
+
+  const uploadImage = () => {
+    uploadImageAPI(
+      currentImage,
+      currentUser?.id,
+      setModalOpen,
+      setCurrentImage,
+      setProgress
+    );
+  };
 
   useMemo(() => {
     if (location?.state?.id) {
@@ -23,6 +42,14 @@ const ProfileCard = ({ currentUser, onEdit }) => {
 
   return (
     <>
+      <FileUploadModal
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        getImage={getImage}
+        uploadImage={uploadImage}
+        currentImage={currentImage}
+        progress={progress}
+      />
       <div className="profile-card">
         <div className="edit-btn">
           <HiOutlinePencil className="edit-icon" onClick={onEdit} />
@@ -30,6 +57,12 @@ const ProfileCard = ({ currentUser, onEdit }) => {
 
         <div className="profile-info">
           <div>
+            <img
+              onClick={() => setModalOpen(true)}
+              className="profile-img"
+              src={currentUser?.imageLink}
+              alt="profile-img"
+            />
             <h3 className="userName">
               {Object.values(currentProfile).length === 0
                 ? currentUser.name
