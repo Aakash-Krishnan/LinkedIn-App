@@ -11,6 +11,18 @@
   margin-left: 20px;
 }
 
+.search-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 10px;
+
+  .close-icon {
+    color: #787878;
+    cursor: pointer;
+  }
+}
+
 .react-icons {
   display: flex;
   align-items: center;
@@ -40,4 +52,59 @@
   right: 10px;
   top: 65px;
   z-index: 99;
+}
+
+.search-results {
+  z-index: 1;
+  overflow-y: scroll;
+  position: absolute;
+  left: 80px;
+  top: 60px;
+  width: 250px;
+  max-height: 300px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #bbbbbb;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  :first-child {
+    margin-top: 2px;
+  }
+}
+.search-results::-webkit-scrollbar {
+  display: none;
+}
+
+.search-inner {
+  margin-top: 5px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  p {
+    font-family: system-ui, sans-serif;
+    font-style: 18px;
+  }
+}
+
+.search-inner:hover {
+  background-color: #cecece;
+}
+
+.search-nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 0px;
+  border-radius: 10px;
 }

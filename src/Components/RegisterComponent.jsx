@@ -7,6 +7,7 @@ import "../Scss/LoginComponent.scss";
 //for google signin button
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
+import userIcon from "../assets/images/user.svg";
 
 import { useNavigate } from "react-router-dom";
 import getUniqueId from "../helpers/getUniqueId";
@@ -24,6 +25,7 @@ const RegisterComponent = () => {
           userID: getUniqueId(),
           name: credentails.name,
           email: credentails.email,
+          imageLink: userIcon,
         });
         navigate("/");
       },
@@ -50,7 +52,6 @@ const RegisterComponent = () => {
 
       <div className="login-wrapper-inner">
         <h1 className="heading">Make the most of your professional life</h1>
-
         <div className="auth-inputs">
           <input
             className="common-input"

@@ -18,6 +18,7 @@ let postsRef = collection(firestore, "posts");
 let usersRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "comments");
+let connectionsRef = collection(firestore, "connections");
 
 export const PostStatusAPI = (object) => {
   addDoc(postsRef, object)
@@ -192,5 +193,34 @@ export const deletePostAPI = (id) => {
     toast.success("Profile has been Deleted!");
   } catch (err) {
     console.log(err);
+  }
+};
+
+export const addConnection = (userId, targetId) => {
+  try {
+    let connectionToAdd = doc(connectionsRef, `${userId}_${targetId}`);
+
+    setDoc(connectionToAdd, { userId, targetId });
+    toast.success("Connection added!");
+  } catch (err) {
+    console.log("Like Error", err);
+  }
+};
+
+export const getConnections = (userId, targetId, setisConnected) => {
+  try {
+    let connectionsQuery = query(
+      connectionsRef,
+      where("targetId", "==", targetId)
+    );
+
+    onSnapshot(connectionsQuery, (response) => {
+      let likes = response.docs.map((doc) => doc.data());
+
+      const isConnected = likes.some((connect) => connect.userId === userId);
+      setisConnected(isConnected);
+    });
+  } catch (err) {
+    console.log("Get lIke error", err);
   }
 };
