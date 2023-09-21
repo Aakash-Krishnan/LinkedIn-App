@@ -174,10 +174,10 @@ export const getCommentsAPI = (
   }
 };
 
-export const updatePost = (id, status, setModalOpen, setStatus) => {
+export const updatePost = (id, status, postImage, setModalOpen, setStatus) => {
   let docToUpdate = doc(postsRef, id);
   try {
-    updateDoc(docToUpdate, { status });
+    updateDoc(docToUpdate, { status, postImage });
     toast.success("Profile has been updated!");
     setStatus("");
     setModalOpen(false);

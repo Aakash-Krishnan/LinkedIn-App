@@ -125,7 +125,7 @@ const Topbar = () => {
         onClick={displayPopup}
       />
 
-      {searchInput.length && (
+      {searchInput.length > 0 && (
         <div className="search-results">
           {filteredUsers.length ? (
             filteredUsers.map((user) => (

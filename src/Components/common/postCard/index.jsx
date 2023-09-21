@@ -11,10 +11,12 @@ import {
 } from "../../../api/FirestoreAPI";
 import { BiPencil } from "react-icons/bi";
 import { BsTrash } from "react-icons/bs";
+import { Button, Modal } from "antd";
 
 const PostsCard = ({ posts, getEditData }) => {
   const [currentUser, setCurrentUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
+  const [imageModal, setImageModal] = useState(false);
   const [isConnected, setisConnected] = useState(false);
 
   const navigate = useNavigate();
@@ -30,13 +32,23 @@ const PostsCard = ({ posts, getEditData }) => {
 
   return (
     <>
-      {isConnected && (
+      <Modal
+        centered
+        open={imageModal}
+        onCancel={() => setImageModal(false)}
+        footer={[]}
+      >
+        <div style={{}}>
+          <img className="posted-preview-image" src={posts.postImage} />
+        </div>
+      </Modal>
+      {isConnected || currentUser.id === posts.userID ? (
         <div className="posts-card">
           <div className="trash-user-container">
             <div className="post-image-wrapper">
               <img
                 alt="profile-img"
-                className="post-image"
+                className="profile-image"
                 src={
                   allUsers.filter((user) => user.id === posts.userID)[0]
                     ?.imageLink
@@ -77,7 +89,18 @@ const PostsCard = ({ posts, getEditData }) => {
               )}
             </div>
           </div>
-          <p className="status">{posts.status}</p>
+          {posts.postImage && (
+            <img
+              className="posted-image"
+              src={posts.postImage}
+              onClick={() => setImageModal(true)}
+            />
+          )}
+          <div
+            className="status"
+            dangerouslySetInnerHTML={{ __html: posts.status }}
+          ></div>
+
           <LikeButton
             userId={currentUser?.id}
             postsId={posts.id}
@@ -86,6 +109,8 @@ const PostsCard = ({ posts, getEditData }) => {
             allUsers={allUsers}
           />
         </div>
+      ) : (
+        <></>
       )}
     </>
   );

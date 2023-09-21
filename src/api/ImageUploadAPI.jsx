@@ -36,3 +36,28 @@ export const uploadImageAPI = (
     }
   );
 };
+
+export const uploadPostImageAPI = (file, setPostImage, setProgress) => {
+  const postPicsRef = ref(storage, `postsImages/${file.name}`);
+  const uploadTask = uploadBytesResumable(postPicsRef, file);
+
+  //10:33:35
+
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      const progress = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+      setProgress(progress);
+    },
+    (error) => {
+      console.log("Uploading Image error", error);
+    },
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((res) => {
+        setPostImage(res);
+      });
+    }
+  );
+};

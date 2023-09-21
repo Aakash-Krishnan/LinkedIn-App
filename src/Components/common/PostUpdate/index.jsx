@@ -18,6 +18,7 @@ const PostStatus = ({ curentUser }) => {
   const [allStatus, setAllStatus] = useState([]);
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
+  const [postImage, setPostImage] = useState("");
 
   const sendStatus = async () => {
     let object = {
@@ -27,6 +28,7 @@ const PostStatus = ({ curentUser }) => {
       userName: curentUser.name,
       postId: getUniqueId(),
       userID: curentUser.id,
+      postImage: postImage,
     };
     await PostStatusAPI(object);
     await setModalOpen(false);
@@ -42,7 +44,7 @@ const PostStatus = ({ curentUser }) => {
   };
 
   const updateStatus = () => {
-    updatePost(currentPost?.id, status, setModalOpen, setStatus);
+    updatePost(currentPost?.id, status, postImage, setModalOpen, setStatus);
   };
 
   useMemo(() => {
@@ -78,6 +80,10 @@ const PostStatus = ({ curentUser }) => {
         sendStatus={sendStatus}
         isEdit={isEdit}
         updateStatus={updateStatus}
+        setPostImage={setPostImage}
+        postImage={postImage}
+        currentPost={currentPost}
+        setCurrentPost={setCurrentPost}
       />
 
       {allStatus.map((posts) => {
