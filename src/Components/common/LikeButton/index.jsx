@@ -100,13 +100,16 @@ const LikeButton = ({ userId, postsId, currentUser, posts, allUsers }) => {
                   <>
                     <div key={comment.id} className="all-comments">
                       <div className="comments-username">
-                        {allUsers
-                          .filter((user) => user.userID === posts.userID)
+                        {/* {allUsers
+                          .filter((user) => user.id === posts.userID)
                           .map((item) => (
-                            <p key={item.id}>{item.name}</p>
-                          ))}
+                            <span className="user-name" key={item.id}>
+                              {item.name}
+                            </span>
+                          ))} */}
+                        {comment.name}
 
-                        <p className="timeStamp">{comment.timeStamp}</p>
+                        <span className="timeStamp">{comment.timeStamp}</span>
                       </div>
                       <div className="comment-container">
                         <p className="comment">{comment.comment}</p>

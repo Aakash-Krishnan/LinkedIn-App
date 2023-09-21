@@ -3,9 +3,15 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import LikeButton from "../LikeButton";
-import { getCurrentUser, getAllUsersAPI } from "../../../api/FirestoreAPI";
+import {
+  getCurrentUser,
+  getAllUsersAPI,
+  deletePostAPI,
+} from "../../../api/FirestoreAPI";
+import { BiPencil } from "react-icons/bi";
+import { BsTrash } from "react-icons/bs";
 
-const PostsCard = ({ posts }) => {
+const PostsCard = ({ posts, getEditData }) => {
   const [currentUser, setCurrentUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
   const navigate = useNavigate();
@@ -17,34 +23,46 @@ const PostsCard = ({ posts }) => {
 
   return (
     <div className="posts-card">
-      <div className="name-timestamp-container">
+      <div className="trash-user-container">
         <div className="post-image-wrapper">
           <img
             alt="profile-img"
             className="post-image"
             src={
-              allUsers
-                .filter((user) => user.userID === posts.userID)
-                .map((item) => item.imageLink)[0]
+              allUsers.filter((user) => user.id === posts.userID)[0]?.imageLink
             }
           />
-          <p
-            className="name"
-            onClick={() =>
-              navigate("/profile", {
-                state: { id: posts?.userID, email: posts.userEmail },
-              })
-            }
-          >
-            {
-              allUsers
-                .filter((user) => user.userID === posts.userID)
-                .map((item) => item.name)[0]
-            }
-          </p>
+          <div>
+            <p
+              className="name"
+              onClick={() =>
+                navigate("/profile", {
+                  state: { id: posts?.userID, email: posts.userEmail },
+                })
+              }
+            >
+              {allUsers.filter((user) => user.id === posts.userID)[0]?.name}
+            </p>
+            <p className="headline">
+              {allUsers.filter((user) => user.id === posts.userID)[0]?.headline}
+            </p>
+            <p className="time-stamp">{posts.timestamp}</p>
+          </div>
+          {currentUser.id === posts.userID && (
+            <div className="edit-trah-icon-container">
+              <BiPencil
+                className="action-icon"
+                size={20}
+                onClick={() => getEditData(posts)}
+              />
+              <BsTrash
+                className="action-icon"
+                size={20}
+                onClick={() => deletePostAPI(posts.id)}
+              />
+            </div>
+          )}
         </div>
-
-        <p className="time-stamp">{posts.timestamp}</p>
       </div>
       <p className="status">{posts.status}</p>
       <LikeButton

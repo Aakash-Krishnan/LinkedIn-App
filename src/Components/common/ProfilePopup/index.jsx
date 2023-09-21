@@ -17,20 +17,22 @@ const ProfilePopup = () => {
   return (
     <div className="popup-card">
       <div className="user-details">
-        <img className="user-img" src={user} />
+        <img
+          className="user-img"
+          src={currentUser.imageLink ? currentUser.imageLink : user}
+        />
 
         <div className="user-info">
           <p className="name">{currentUser.name}</p>
           <p className="headline">{currentUser.headline}</p>
         </div>
       </div>
-      {/* <hr className="hline"></hr> */}
 
       <div className="btn-container">
         <Button
           onClick={() =>
             navigate("/profile", {
-              state: { id: currentUser?.userID },
+              state: { id: currentUser?.id },
             })
           }
           title="View Profile"

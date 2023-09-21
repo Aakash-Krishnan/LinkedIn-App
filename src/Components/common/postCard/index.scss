@@ -22,12 +22,20 @@
 
   .name {
     font-family: system-ui, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #212121;
     font-weight: 600;
     margin: 0 0 0 10px;
     // text-decoration: underline;
     cursor: pointer;
+  }
+  .headline {
+    width: 95%;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    margin: 0 10px 0 10px;
   }
 
   .time-stamp {
@@ -39,10 +47,9 @@
   }
   .status {
     text-align: left;
-    margin: 10px 0 0 10px;
-
-    font-family: system-ui, sans-serif;
-    font-size: 14px;
+    margin: 10px 0 0 15px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.9);
   }
@@ -53,5 +60,24 @@
     border-radius: 50%;
     object-fit: cover;
     margin-left: 8px;
+  }
+}
+
+.trash-user-container {
+  position: relative;
+  .edit-trah-icon-container {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    top: 20px;
+    gap: 15px;
+  }
+  .action-icon {
+    padding: 5px;
+  }
+  .action-icon:hover {
+    background-color: rgb(155, 155, 155);
+    border-radius: 50%;
   }
 }

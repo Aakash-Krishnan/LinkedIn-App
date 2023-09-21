@@ -60,7 +60,11 @@ const ProfileCard = ({ currentUser, onEdit }) => {
             <img
               onClick={() => setModalOpen(true)}
               className="profile-img"
-              src={currentUser?.imageLink}
+              src={
+                Object.values(currentProfile).length === 0
+                  ? currentUser.imageLink
+                  : currentProfile?.imageLink
+              }
               alt="profile-img"
             />
             <h3 className="userName">

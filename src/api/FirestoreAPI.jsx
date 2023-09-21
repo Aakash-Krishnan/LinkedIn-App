@@ -172,3 +172,25 @@ export const getCommentsAPI = (
     console.log("Get lIke error", err);
   }
 };
+
+export const updatePost = (id, status, setModalOpen, setStatus) => {
+  let docToUpdate = doc(postsRef, id);
+  try {
+    updateDoc(docToUpdate, { status });
+    toast.success("Profile has been updated!");
+    setStatus("");
+    setModalOpen(false);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deletePostAPI = (id) => {
+  let docToDelete = doc(postsRef, id);
+  try {
+    deleteDoc(docToDelete);
+    toast.success("Profile has been Deleted!");
+  } catch (err) {
+    console.log(err);
+  }
+};
