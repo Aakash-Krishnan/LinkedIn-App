@@ -1,6 +1,6 @@
-$skyAppGreen1: #04aa6d;
-$skyAppGreen2: #028a58;
-$skyAppGreen3: #03603e;
+$linkedinBlue1: #0072b1;
+$linkedinBlue2: #0073b1;
+$linkedinBlue3: #004c75;
 
 body {
   margin: 0;
@@ -8,22 +8,22 @@ body {
 }
 
 .login-wrapper {
+  height: 100vh;
+  background-color: white !important;
   background-image: url("../assets/images/LogoImg1.jpg");
   background-color: transparent;
   object-fit: contain;
   background-repeat: no-repeat;
-  height: 100vh;
   .login-wrapper-inner {
-    opacity: 0.99;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 500px;
     align-items: center;
   }
   .heading {
-    text-align: left;
+    text-align: center;
     font-family: system-ui;
+    width: 100%;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.9);
 
@@ -45,7 +45,7 @@ body {
   width: 300px;
   height: 50px;
   cursor: pointer;
-  background-color: $skyAppGreen2;
+  background-color: $linkedinBlue2;
   border-radius: 30px;
   outline: none;
   border: none;
@@ -57,7 +57,7 @@ body {
 }
 
 .login-btn:hover {
-  background-color: $skyAppGreen3;
+  background-color: $linkedinBlue3;
 }
 
 .auth-inputs {
@@ -65,16 +65,10 @@ body {
   flex-direction: column;
   gap: 10px;
   width: 300px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .linkedinLogo {
-  width: 60px;
-  height: 60px;
-  margin-top: 10px;
-  object-fit: cover;
-  border-radius: 50%;
+  width: 80px;
 }
 
 .hr-text {
@@ -126,7 +120,7 @@ body {
   }
 
   .join-now {
-    color: $skyAppGreen1;
+    color: $linkedinBlue1;
     font-family: system-ui;
     cursor: pointer;
     font-size: 18px;

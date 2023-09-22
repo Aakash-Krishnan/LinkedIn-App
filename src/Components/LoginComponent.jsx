@@ -42,7 +42,7 @@ const LoginComponent = () => {
     <div className="login-wrapper">
       <img className="linkedinLogo" src={LogoImg2} alt="" />
       <Row className="login-wrapper-inner" gutter={16}>
-        <Col span={8}>
+        <Col>
           <Card>
             <div className="login-wrapper-inner">
               <h1 className="heading">Sign in</h1>
