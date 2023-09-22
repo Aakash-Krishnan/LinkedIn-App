@@ -1,11 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "../Scss/ConnectionsComponent.scss";
-import {
-  addConnection,
-  getAllUsersAPI,
-  getConnections,
-} from "../api/FirestoreAPI";
+import { addConnection, getAllUsersAPI } from "../api/FirestoreAPI";
 import ConnectedUsers from "./common/ConnectedUsers";
 
 const ConnectionsComponent = ({ curentUser }) => {

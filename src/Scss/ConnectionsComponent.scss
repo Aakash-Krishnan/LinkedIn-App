@@ -10,7 +10,16 @@
   border: 1px solid #bbbbbb;
   background-color: white;
   border-radius: 10px;
+  background-image: url("../assets/images/LogoImg1.jpg");
+  background-color: transparent;
+  background-attachment: fixed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .grid-child {
+    background-color: white;
     border: 1px solid #bbbbbb;
     width: 250px;
     height: 330px;

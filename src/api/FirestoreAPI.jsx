@@ -11,6 +11,7 @@ import {
   where,
   setDoc,
   deleteDoc,
+  orderBy,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
@@ -31,7 +32,8 @@ export const PostStatusAPI = (object) => {
 };
 
 export const getStatusAPI = (setAllStatus) => {
-  onSnapshot(postsRef, (response) => {
+  let orderPostRef = query(postsRef, orderBy("timestamp", "desc"));
+  onSnapshot(orderPostRef, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
@@ -74,9 +76,6 @@ export const getCurrentUser = (setCurrentUser) => {
 
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(usersRef, userID);
-  // let statusToEdit = doc(postsRef, userID);
-  // console.log("payload", payload.name);
-
   updateDoc(userToEdit, payload)
     .then((res) => {
       toast.success("Profile has been updated successfully");
@@ -84,10 +83,6 @@ export const editProfile = (userID, payload) => {
     .catch((err) => {
       toast.error("Profile Rejected!");
     });
-
-  // updateDoc(statusToEdit, payload).then(() => {
-  //   toast.success("ProfileName ");
-  // });
 };
 
 export const getSingleStatus = (setAllStatus, id) => {
@@ -174,13 +169,21 @@ export const getCommentsAPI = (
   }
 };
 
-export const updatePost = (id, status, postImage, setModalOpen, setStatus) => {
+export const updatePost = (
+  id,
+  status,
+  postImage,
+  setModalOpen,
+  setStatus,
+  setCurrentPost
+) => {
   let docToUpdate = doc(postsRef, id);
   try {
     updateDoc(docToUpdate, { status, postImage });
     toast.success("Profile has been updated!");
     setStatus("");
     setModalOpen(false);
+    setCurrentPost({});
   } catch (err) {
     console.log(err);
   }

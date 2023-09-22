@@ -44,7 +44,14 @@ const PostStatus = ({ curentUser }) => {
   };
 
   const updateStatus = () => {
-    updatePost(currentPost?.id, status, postImage, setModalOpen, setStatus);
+    updatePost(
+      currentPost?.id,
+      status,
+      postImage,
+      setModalOpen,
+      setStatus,
+      setCurrentPost
+    );
   };
 
   useMemo(() => {

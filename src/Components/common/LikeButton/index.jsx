@@ -61,11 +61,11 @@ const LikeButton = ({ userId, postsId, currentUser, posts, allUsers }) => {
       <div className="like-comment">
         <div className="likes-comment-inner" onClick={handleLike}>
           {liked ? (
-            <BiSolidLike size={30} color="#0072b1" />
+            <BiSolidLike size={30} color="#02754b" />
           ) : (
             <BiLike size={30} />
           )}
-          <p className={liked ? "blue" : "black"}>Like</p>
+          <p className={liked ? "green" : "black"}>Like</p>
         </div>
 
         <div
@@ -73,11 +73,11 @@ const LikeButton = ({ userId, postsId, currentUser, posts, allUsers }) => {
           onClick={() => setShowCommentBox(!showCommentBox)}
         >
           <AiOutlineComment
-            className={showCommentBox ? "blue" : "black"}
+            className={showCommentBox ? "green" : "black"}
             size={30}
           />
 
-          <p className={showCommentBox ? "blue" : "black"}>Comments</p>
+          <p className={showCommentBox ? "green" : "black"}>Comments</p>
         </div>
       </div>
       {showCommentBox ? (

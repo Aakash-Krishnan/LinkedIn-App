@@ -28,6 +28,13 @@ const ModalComponent = ({
         title="Create a post"
         centered
         open={modalOpen}
+        onOk={() => {
+          setPostImage("");
+          setCurrentPost({});
+          setStatus("");
+          setModalOpen(false);
+          setProgress(0);
+        }}
         onCancel={() => {
           setPostImage("");
           setCurrentPost({});

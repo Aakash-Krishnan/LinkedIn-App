@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
-import linkedinLogo from "../../../assets/linkedinLogo.png";
+import LogoImg2 from "../../../assets/images/LogoImg2.jpg";
 import user from "../../../assets/images/user.svg";
 import {
   AiOutlineHome,
@@ -80,7 +80,7 @@ const Topbar = () => {
         <></>
       )}
 
-      <img className="linkedinLogo" src={linkedinLogo} alt="linkedInLogo" />
+      <img className="skyappLogo" src={LogoImg2} alt="SkyAppLogo" />
       {isSearch ? (
         <div className="search-container">
           <SearchUser setSearchInput={setSearchInput} />
