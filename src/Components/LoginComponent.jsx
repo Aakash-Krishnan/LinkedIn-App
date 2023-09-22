@@ -7,8 +7,11 @@ import "../Scss/LoginComponent.scss";
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
 import { Card, Col, Row } from "antd";
+import userIcon from "../assets/images/user.svg";
 
 import { useNavigate } from "react-router-dom";
+import { postUserData } from "../api/FirestoreAPI";
+import getUniqueId from "../helpers/getUniqueId";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -32,6 +35,12 @@ const LoginComponent = () => {
       (res) => {
         toast.success("Signed In to linkedIn with google");
         localStorage.setItem("userEmail", res.user.email);
+        postUserData({
+          userID: getUniqueId(),
+          name: res.user.displayName,
+          email: res.user.email,
+          imageLink: userIcon,
+        });
         navigate("/home");
       },
       (err) => toast.error("Please check your credentials")

@@ -40,6 +40,12 @@ const RegisterComponent = () => {
       (res) => {
         toast.success("Signed In to linkedIn with google");
         localStorage.setItem("userEmail", res.user.email);
+        postUserData({
+          userID: getUniqueId(),
+          name: res.user.displayName,
+          email: res.user.email,
+          imageLink: userIcon,
+        });
         navigate("/home");
       },
       (err) => toast.error("Please check your credentials")

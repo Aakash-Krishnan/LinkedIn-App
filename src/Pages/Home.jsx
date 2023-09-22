@@ -20,7 +20,6 @@ const Home = ({ curentUser }) => {
       }
     });
   }, []);
-  console.log(curentUser);
 
   return (
     <div>

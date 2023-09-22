@@ -51,14 +51,22 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         progress={progress}
       />
       <div className="profile-card">
-        <div className="edit-btn">
-          <HiOutlinePencil className="edit-icon" onClick={onEdit} />
-        </div>
+        {currentUser?.id === location?.state?.id ? (
+          <div className="edit-btn">
+            <HiOutlinePencil className="edit-icon" onClick={onEdit} />
+          </div>
+        ) : (
+          <></>
+        )}
 
         <div className="profile-info">
           <div>
             <img
-              onClick={() => setModalOpen(true)}
+              onClick={() => {
+                currentUser?.id === location?.state?.id
+                  ? setModalOpen(true)
+                  : setModalOpen(false);
+              }}
               className="profile-img"
               src={
                 Object.values(currentProfile).length === 0
