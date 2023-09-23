@@ -8,7 +8,6 @@ const Loader = () => {
     <ConfigProvider
       theme={{
         token: {
-          // Seed Token
           colorPrimary: "white",
           borderRadius: 2,
           fontSize: token.fontSize,

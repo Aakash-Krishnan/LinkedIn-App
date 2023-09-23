@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
@@ -34,8 +35,6 @@ const Topbar = () => {
   const displayPopup = () => {
     setPopupVisible(!popupVisible);
   };
-
-  // 10:05:05
 
   const handleSearch = () => {
     if (searchInput !== "") {
@@ -78,7 +77,7 @@ const Topbar = () => {
         <></>
       )}
 
-      <h1 className="app-name">SkyApp</h1>
+      <h1 className="app-name">SkySite</h1>
       {isSearch ? (
         <div className="search-container">
           <SearchUser setSearchInput={setSearchInput} />
@@ -111,7 +110,6 @@ const Topbar = () => {
               })
             }
           />
-          {/* <BsBriefcase size="30px" className="react-icon" /> */}
           <AiOutlineMessage size="30px" className="react-icon" />
           <AiOutlineBell size="30px" className="react-icon" />
         </div>

@@ -24,7 +24,7 @@ let chatsRef = collection(firestore, "chats");
 
 export const PostStatusAPI = (object) => {
   addDoc(postsRef, object)
-    .then((res) => {
+    .then(() => {
       toast.success("Document status updated successfully");
     })
     .catch((err) => {

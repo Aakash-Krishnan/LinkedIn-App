@@ -13,8 +13,6 @@ export const uploadImageAPI = (
   const profilePics = ref(storage, `profileImages/${file.name}`);
   const uploadTask = uploadBytesResumable(profilePics, file);
 
-  //7:35:07
-
   uploadTask.on(
     "state_changed",
     (snapshot) => {
@@ -40,8 +38,6 @@ export const uploadImageAPI = (
 export const uploadPostImageAPI = (file, setPostImage, setProgress) => {
   const postPicsRef = ref(storage, `postsImages/${file.name}`);
   const uploadTask = uploadBytesResumable(postPicsRef, file);
-
-  //10:33:35
 
   uploadTask.on(
     "state_changed",

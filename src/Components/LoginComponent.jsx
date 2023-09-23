@@ -52,7 +52,7 @@ const LoginComponent = () => {
       <h4>Your datas are safe here!</h4>
       <p>
         Link to{" "}
-        <a href="https://github.com/Aakash-Krishnan/Sky-App" target="blank">
+        <a href="https://github.com/Aakash-Krishnan/SkySite" target="blank">
           GitHub
         </a>{" "}
       </p>
@@ -110,7 +110,10 @@ const LoginComponent = () => {
           </Card>
         </Col>
       </Row>
-      <Popover content={content} title={<h2 className="info-title">SkyApp</h2>}>
+      <Popover
+        content={content}
+        title={<h2 className="info-title">SkySite</h2>}
+      >
         <FloatButton
           icon={<InfoOutlined />}
           badge={{

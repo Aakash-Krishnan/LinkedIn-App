@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Modal, Button, Progress, Space } from "antd";
+import { Modal, Button, Progress } from "antd";
 import "./index.scss";
 
 const FileUploadModal = ({
@@ -16,7 +16,6 @@ const FileUploadModal = ({
         title="Add a profile picture"
         centered
         open={modalOpen}
-        // onOk={() => setModalOpen(false)}
         onCancel={() => setModalOpen(false)}
         footer={[
           <Button

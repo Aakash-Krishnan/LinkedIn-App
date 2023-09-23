@@ -11,19 +11,11 @@ const Chat = ({ user, selectChatFriend, setSelectChatFriend, setRoomId }) => {
   useMemo(() => {
     getCurrentUser(setCurrentUser);
   }, []);
-  useEffect(() => {
-    // setRoomId(sortBy(user?.id?.concat(currentUser?.id))?.join(""));
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     getConnections(currentUser.id, user.id, setisConnected);
   }, [currentUser.id, user.id]);
-
-  // console.log("Cid", currentUser?.id, "Uid", user?.id);
-  // console.log(
-  //   "CHATROOMid",
-  //   sortBy(user?.id?.concat(currentUser?.id))?.join("")
-  // );
 
   return (
     <div className="chat-list-container">

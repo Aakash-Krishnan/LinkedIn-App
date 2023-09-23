@@ -4,8 +4,6 @@ import "./index.scss";
 import { editProfile } from "../../../api/FirestoreAPI";
 import { AiOutlineClose } from "react-icons/ai";
 
-//4:16:51
-
 const ProfileEdit = ({ onEdit, currentUser }) => {
   const [editInputs, setEditInputs] = useState(currentUser);
 

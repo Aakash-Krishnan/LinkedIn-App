@@ -1,8 +1,17 @@
-# React + Vite
+# SkySite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a fully functional online social media website.
 
-Currently, two official plugins are available:
+## Here you can: -
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Get into your personal account.
+- Connect with other people.
+- Post your thoughts.
+- Comment on other's posts and like to their posts.
+- You can even chat with others.
+- You can build your profile to let them know about you.
+
+## Here I have used: -
+
+- Languages: - Javascript | HTML5 | CSS5
+- Libraries/Frameworks: React.js | Firebase | Ant-Design | SCSS
