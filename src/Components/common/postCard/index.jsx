@@ -11,10 +11,11 @@ import {
 } from "../../../api/FirestoreAPI";
 import { BiPencil } from "react-icons/bi";
 import { BsTrash } from "react-icons/bs";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 
 const PostsCard = ({ posts, getEditData }) => {
   const [currentUser, setCurrentUser] = useState({});
+
   const [allUsers, setAllUsers] = useState([]);
   const [imageModal, setImageModal] = useState(false);
   const [isConnected, setisConnected] = useState(false);

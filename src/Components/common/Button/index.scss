@@ -1,14 +1,14 @@
-$linkedinBlue1: #0072b1;
-$linkedinBlue2: #0073b1;
-$linkedinBlue3: #004c75;
+$skyAppGreen1: #02754b;
+$skyAppGreen2: #035a3a;
+$skyAppGreen3: #07bd7a;
 
 .common-btn {
   width: 200px;
   height: 30px;
   cursor: pointer;
   background-color: whitesmoke;
-  border: 2px solid $linkedinBlue1;
-  color: $linkedinBlue1;
+  border: 2px solid $skyAppGreen1;
+  color: $skyAppGreen1;
   border-radius: 30px;
   font-family: system-ui;
   font-size: 14px;
@@ -16,7 +16,7 @@ $linkedinBlue3: #004c75;
 }
 
 .common-btn:hover {
-  border: 2px solid $linkedinBlue1;
-  color: $linkedinBlue1;
+  border: 2px solid $skyAppGreen1;
+  color: $skyAppGreen1;
   font-weight: 600;
 }

@@ -6,8 +6,9 @@ import "../Scss/LoginComponent.scss";
 //for google signin button
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
-import { Card, Col, Row } from "antd";
+import { Card, Col, Row, FloatButton, Popover } from "antd";
 import userIcon from "../assets/images/user.svg";
+import { InfoOutlined } from "@ant-design/icons";
 
 import { useNavigate } from "react-router-dom";
 import { postUserData } from "../api/FirestoreAPI";
@@ -16,8 +17,6 @@ import getUniqueId from "../helpers/getUniqueId";
 const LoginComponent = () => {
   const navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
-
-  // 3:23:51
 
   const login = () => {
     LoginAPI(credentails.email, credentails.password).then(
@@ -46,10 +45,23 @@ const LoginComponent = () => {
       (err) => toast.error("Please check your credentials")
     );
   };
-
+  const content = (
+    <div className="project-info">
+      <p>This is my personal project to showcase my skills</p>
+      <p>you can provide a dummy ID to get in and explore</p>
+      <h4>Your datas are safe here!</h4>
+      <p>
+        Link to{" "}
+        <a href="https://github.com/Aakash-Krishnan/Sky-App" target="blank">
+          GitHub
+        </a>{" "}
+      </p>
+    </div>
+  );
   return (
     <div className="login-wrapper">
-      <img className="linkedinLogo" src={LogoImg2} alt="" />
+      <h1 className="app-name">SkyApp</h1>
+
       <Row className="login-wrapper-inner" gutter={16}>
         <Col>
           <Card>
@@ -98,6 +110,20 @@ const LoginComponent = () => {
           </Card>
         </Col>
       </Row>
+      <Popover content={content} title={<h2 className="info-title">SkyApp</h2>}>
+        <FloatButton
+          icon={<InfoOutlined />}
+          badge={{
+            dot: true,
+            color: "red",
+            size: "20",
+          }}
+          style={{
+            right: 94,
+            backgroundColor: "white",
+          }}
+        />
+      </Popover>
     </div>
   );
 };

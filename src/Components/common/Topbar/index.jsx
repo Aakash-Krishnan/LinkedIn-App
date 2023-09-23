@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
-import LogoImg2 from "../../../assets/images/LogoImg2.jpg";
 import user from "../../../assets/images/user.svg";
 import {
   AiOutlineHome,
@@ -10,7 +9,6 @@ import {
   AiOutlineMessage,
   AiOutlineBell,
 } from "react-icons/ai";
-import { BsBriefcase } from "react-icons/bs";
 import ProfilePopup from "../ProfilePopup";
 import { getCurrentUser, getAllUsersAPI } from "../../../api/FirestoreAPI";
 import SearchUser from "../SearchUsers";
@@ -80,7 +78,7 @@ const Topbar = () => {
         <></>
       )}
 
-      <img className="skyappLogo" src={LogoImg2} alt="SkyAppLogo" />
+      <h1 className="app-name">SkyApp</h1>
       {isSearch ? (
         <div className="search-container">
           <SearchUser setSearchInput={setSearchInput} />
@@ -113,7 +111,7 @@ const Topbar = () => {
               })
             }
           />
-          <BsBriefcase size="30px" className="react-icon" />
+          {/* <BsBriefcase size="30px" className="react-icon" /> */}
           <AiOutlineMessage size="30px" className="react-icon" />
           <AiOutlineBell size="30px" className="react-icon" />
         </div>

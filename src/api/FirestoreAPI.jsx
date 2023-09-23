@@ -20,6 +20,7 @@ let usersRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "comments");
 let connectionsRef = collection(firestore, "connections");
+let chatsRef = collection(firestore, "chats");
 
 export const PostStatusAPI = (object) => {
   addDoc(postsRef, object)
@@ -226,4 +227,28 @@ export const getConnections = (userId, targetId, setisConnected) => {
   } catch (err) {
     console.log("Get lIke error", err);
   }
+};
+
+export const sendChatMessageAPI = (object, setNewMessage) => {
+  try {
+    addDoc(chatsRef, object);
+  } catch (err) {
+    toast.error("Messge failed to send :(");
+  }
+  setNewMessage("");
+};
+
+export const getChatMessageAPI = (roomId, setOldMessage) => {
+  const queryToGetChat = query(
+    chatsRef,
+    where("roomId", "==", roomId),
+    orderBy("createdTimeStamp", "desc")
+  );
+  onSnapshot(queryToGetChat, (response) => {
+    let message = [];
+    response.forEach((doc) => {
+      message.push({ ...doc.data(), id: doc.id });
+    });
+    setOldMessage(message);
+  });
 };

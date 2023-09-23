@@ -54,13 +54,14 @@ const RegisterComponent = () => {
 
   return (
     <div className="login-wrapper">
-      <img className="linkedinLogo" src={LogoImg2} alt="" />
+      <h1 className="app-name">SkyApp</h1>
+
       <Row className="login-wrapper-inner" gutter={16}>
         <Col>
           <Card>
             <div className="login-wrapper-inner">
               <h1 className="heading">
-                Make the most of your professional life
+                Join our media and connect with your friends
               </h1>
               <div className="auth-inputs">
                 <input
