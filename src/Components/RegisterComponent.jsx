@@ -53,7 +53,7 @@ const RegisterComponent = () => {
 
   return (
     <div className="login-wrapper">
-      <h1 className="app-name">SkyApp</h1>
+      <h1 className="app-name">SkySite</h1>
 
       <Row className="login-wrapper-inner" gutter={16}>
         <Col>
