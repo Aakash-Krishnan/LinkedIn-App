@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "../Scss/HomeComponent.scss";
 import PostStatus from "./common/PostUpdate";
 

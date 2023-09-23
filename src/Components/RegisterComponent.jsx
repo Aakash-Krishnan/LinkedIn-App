@@ -2,7 +2,6 @@
 import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import { postUserData } from "../api/FirestoreAPI";
 import { useState } from "react";
-import LogoImg2 from "../assets/images/LogoImg2.jpg";
 import "../Scss/LoginComponent.scss";
 import { Card, Col, Row } from "antd";
 import GoogleButton from "react-google-button";

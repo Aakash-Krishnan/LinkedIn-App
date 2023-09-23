@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import { useState } from "react";
-import LogoImg2 from "../assets/images/LogoImg2.jpg";
 import "../Scss/LoginComponent.scss";
 //for google signin button
 import GoogleButton from "react-google-button";
@@ -48,6 +47,7 @@ const LoginComponent = () => {
   const content = (
     <div className="project-info">
       <p>This is my personal project to showcase my skills</p>
+      <p>The Project is still in development!!</p>
       <p>you can provide a dummy ID to get in and explore</p>
       <h4>Your datas are safe here!</h4>
       <p>
