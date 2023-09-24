@@ -13,5 +13,5 @@ This is a fully functional online social media website.
 
 ## Here I have used: -
 
-- Languages: - Javascript | HTML5 | CSS5
+- Languages: - Javascript | HTML5 | CSS3
 - Libraries/Frameworks: React.js | Firebase | Ant-Design | SCSS
